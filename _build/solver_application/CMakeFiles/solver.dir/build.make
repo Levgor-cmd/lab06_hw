@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/lev/Levgor-cmd/workspace/projects/lab03_hw
+CMAKE_SOURCE_DIR = /home/lev/Levgor-cmd/workspace/projects/lab06_hw
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/lev/Levgor-cmd/workspace/projects/lab03_hw/_build
+CMAKE_BINARY_DIR = /home/lev/Levgor-cmd/workspace/projects/lab06_hw/_build
 
 # Include any dependencies generated for this target.
 include solver_application/CMakeFiles/solver.dir/depend.make
@@ -73,18 +73,18 @@ solver_application/CMakeFiles/solver.dir/codegen:
 .PHONY : solver_application/CMakeFiles/solver.dir/codegen
 
 solver_application/CMakeFiles/solver.dir/equation.cpp.o: solver_application/CMakeFiles/solver.dir/flags.make
-solver_application/CMakeFiles/solver.dir/equation.cpp.o: /home/lev/Levgor-cmd/workspace/projects/lab03_hw/solver_application/equation.cpp
+solver_application/CMakeFiles/solver.dir/equation.cpp.o: /home/lev/Levgor-cmd/workspace/projects/lab06_hw/solver_application/equation.cpp
 solver_application/CMakeFiles/solver.dir/equation.cpp.o: solver_application/CMakeFiles/solver.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/lev/Levgor-cmd/workspace/projects/lab03_hw/_build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object solver_application/CMakeFiles/solver.dir/equation.cpp.o"
-	cd /home/lev/Levgor-cmd/workspace/projects/lab03_hw/_build/solver_application && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT solver_application/CMakeFiles/solver.dir/equation.cpp.o -MF CMakeFiles/solver.dir/equation.cpp.o.d -o CMakeFiles/solver.dir/equation.cpp.o -c /home/lev/Levgor-cmd/workspace/projects/lab03_hw/solver_application/equation.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/lev/Levgor-cmd/workspace/projects/lab06_hw/_build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object solver_application/CMakeFiles/solver.dir/equation.cpp.o"
+	cd /home/lev/Levgor-cmd/workspace/projects/lab06_hw/_build/solver_application && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT solver_application/CMakeFiles/solver.dir/equation.cpp.o -MF CMakeFiles/solver.dir/equation.cpp.o.d -o CMakeFiles/solver.dir/equation.cpp.o -c /home/lev/Levgor-cmd/workspace/projects/lab06_hw/solver_application/equation.cpp
 
 solver_application/CMakeFiles/solver.dir/equation.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/solver.dir/equation.cpp.i"
-	cd /home/lev/Levgor-cmd/workspace/projects/lab03_hw/_build/solver_application && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lev/Levgor-cmd/workspace/projects/lab03_hw/solver_application/equation.cpp > CMakeFiles/solver.dir/equation.cpp.i
+	cd /home/lev/Levgor-cmd/workspace/projects/lab06_hw/_build/solver_application && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lev/Levgor-cmd/workspace/projects/lab06_hw/solver_application/equation.cpp > CMakeFiles/solver.dir/equation.cpp.i
 
 solver_application/CMakeFiles/solver.dir/equation.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/solver.dir/equation.cpp.s"
-	cd /home/lev/Levgor-cmd/workspace/projects/lab03_hw/_build/solver_application && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lev/Levgor-cmd/workspace/projects/lab03_hw/solver_application/equation.cpp -o CMakeFiles/solver.dir/equation.cpp.s
+	cd /home/lev/Levgor-cmd/workspace/projects/lab06_hw/_build/solver_application && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lev/Levgor-cmd/workspace/projects/lab06_hw/solver_application/equation.cpp -o CMakeFiles/solver.dir/equation.cpp.s
 
 # Object files for target solver
 solver_OBJECTS = \
@@ -100,18 +100,18 @@ solver_application/solver: formatter_ex_lib/libformatter_ex.a
 solver_application/solver: solver_lib/libsolver_lib.a
 solver_application/solver: formatter_lib/libformatter.a
 solver_application/solver: solver_application/CMakeFiles/solver.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/lev/Levgor-cmd/workspace/projects/lab03_hw/_build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable solver"
-	cd /home/lev/Levgor-cmd/workspace/projects/lab03_hw/_build/solver_application && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/solver.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/lev/Levgor-cmd/workspace/projects/lab06_hw/_build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable solver"
+	cd /home/lev/Levgor-cmd/workspace/projects/lab06_hw/_build/solver_application && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/solver.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 solver_application/CMakeFiles/solver.dir/build: solver_application/solver
 .PHONY : solver_application/CMakeFiles/solver.dir/build
 
 solver_application/CMakeFiles/solver.dir/clean:
-	cd /home/lev/Levgor-cmd/workspace/projects/lab03_hw/_build/solver_application && $(CMAKE_COMMAND) -P CMakeFiles/solver.dir/cmake_clean.cmake
+	cd /home/lev/Levgor-cmd/workspace/projects/lab06_hw/_build/solver_application && $(CMAKE_COMMAND) -P CMakeFiles/solver.dir/cmake_clean.cmake
 .PHONY : solver_application/CMakeFiles/solver.dir/clean
 
 solver_application/CMakeFiles/solver.dir/depend:
-	cd /home/lev/Levgor-cmd/workspace/projects/lab03_hw/_build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/lev/Levgor-cmd/workspace/projects/lab03_hw /home/lev/Levgor-cmd/workspace/projects/lab03_hw/solver_application /home/lev/Levgor-cmd/workspace/projects/lab03_hw/_build /home/lev/Levgor-cmd/workspace/projects/lab03_hw/_build/solver_application /home/lev/Levgor-cmd/workspace/projects/lab03_hw/_build/solver_application/CMakeFiles/solver.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /home/lev/Levgor-cmd/workspace/projects/lab06_hw/_build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/lev/Levgor-cmd/workspace/projects/lab06_hw /home/lev/Levgor-cmd/workspace/projects/lab06_hw/solver_application /home/lev/Levgor-cmd/workspace/projects/lab06_hw/_build /home/lev/Levgor-cmd/workspace/projects/lab06_hw/_build/solver_application /home/lev/Levgor-cmd/workspace/projects/lab06_hw/_build/solver_application/CMakeFiles/solver.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : solver_application/CMakeFiles/solver.dir/depend
 

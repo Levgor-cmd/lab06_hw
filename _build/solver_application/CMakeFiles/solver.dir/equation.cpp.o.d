@@ -1,5 +1,5 @@
 solver_application/CMakeFiles/solver.dir/equation.cpp.o: \
- /home/lev/Levgor-cmd/workspace/projects/lab03_hw/solver_application/equation.cpp \
+ /home/lev/Levgor-cmd/workspace/projects/lab06_hw/solver_application/equation.cpp \
  /usr/include/stdc-predef.h /usr/include/c++/14/iostream \
  /usr/include/c++/14/bits/requires_hosted.h \
  /usr/include/x86_64-linux-gnu/c++/14/bits/c++config.h \
@@ -154,5 +154,5 @@ solver_application/CMakeFiles/solver.dir/equation.cpp.o: \
  /usr/include/c++/14/bits/basic_ios.tcc \
  /usr/include/c++/14/bits/ostream.tcc /usr/include/c++/14/istream \
  /usr/include/c++/14/bits/istream.tcc \
- /home/lev/Levgor-cmd/workspace/projects/lab03_hw/formatter_ex_lib/formatter_ex.h \
- /home/lev/Levgor-cmd/workspace/projects/lab03_hw/solver_lib/solver.h
+ /home/lev/Levgor-cmd/workspace/projects/lab06_hw/formatter_ex_lib/formatter_ex.h \
+ /home/lev/Levgor-cmd/workspace/projects/lab06_hw/solver_lib/solver.h

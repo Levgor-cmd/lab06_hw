@@ -1,25 +1,53 @@
-## Отчёт к лабораторной работе 03 (домашнее задание)
+## Отчёт по домашнему заданию к лабораторной работе 06
 
-### 1. Подготовка окружения
+### 1. Подготовка окружения и репозитория
 
 ```bash
 lev@debian:~$ export GITHUB_USERNAME=Levgor-cmd
+lev@debian:~$ export GITHUB_EMAIL=gorlinskiy.lev@bk.ru
 lev@debian:~$ cd ${GITHUB_USERNAME}/workspace
-lev@debian:~/Levgor-cmd/workspace$ pushd .
-lev@debian:~/Levgor-cmd/workspace$ rm -rf projects/lab03_hw
-lev@debian:~/Levgor-cmd/workspace$ git clone https://github.com/tp-labs/lab03 projects/lab03_hw
-lev@debian:~/Levgor-cmd/workspace$ cd projects/lab03_hw
-lev@debian:~/Levgor-cmd/workspace/projects/lab03_hw$ git remote remove origin
-lev@debian:~/Levgor-cmd/workspace/projects/lab03_hw$ git remote add origin https://github.com/${GITHUB_USERNAME}/lab03_hw
+lev@debian:~/Levgor-cmd/workspace$ rm -rf projects/lab06_hw
+lev@debian:~/Levgor-cmd/workspace$ git clone https://github.com/Levgor-cmd/lab03_hw projects/lab06_hw
+lev@debian:~/Levgor-cmd/workspace$ cd projects/lab06_hw
+lev@debian:~/Levgor-cmd/workspace/projects/lab06_hw$ git remote remove origin
+lev@debian:~/Levgor-cmd/workspace/projects/lab06_hw$ git remote add origin https://github.com/${GITHUB_USERNAME}/lab06_hw
 ```
 
-### 2. Создание CMakeLists.txt для каждого компонента
+### 2. Настройка CPack
 
-#### Корневой CMakeLists.txt:
+#### CPackConfig.cmake:
 ```bash
-lev@debian:~/Levgor-cmd/workspace/projects/lab03_hw$ cat > CMakeLists.txt <<'EOF'
-cmake_minimum_required(VERSION 3.4)
-project(FormatterProject)
+lev@debian:~/Levgor-cmd/workspace/projects/lab06_hw$ cat > CPackConfig.cmake <<'EOF'
+include(InstallRequiredSystemLibraries)
+
+set(CPACK_PACKAGE_CONTACT ${GITHUB_EMAIL})
+set(CPACK_PACKAGE_VERSION_MAJOR 0)
+set(CPACK_PACKAGE_VERSION_MINOR 1)
+set(CPACK_PACKAGE_VERSION_PATCH 0)
+set(CPACK_PACKAGE_VERSION_TWEAK 0)
+set(CPACK_PACKAGE_VERSION "0.1.0.0")
+set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "Quadratic equation solver")
+
+set(CPACK_RPM_PACKAGE_NAME "solver")
+set(CPACK_RPM_PACKAGE_LICENSE "MIT")
+set(CPACK_RPM_PACKAGE_GROUP "Development/Tools")
+set(CPACK_RPM_PACKAGE_RELEASE 1)
+
+set(CPACK_DEBIAN_PACKAGE_NAME "solver")
+set(CPACK_DEBIAN_PACKAGE_PREDEPENDS "cmake >= 3.0")
+set(CPACK_DEBIAN_PACKAGE_RELEASE 1)
+set(CPACK_DEBIAN_PACKAGE_MAINTAINER "${GITHUB_EMAIL}")
+
+include(CPack)
+EOF
+```
+
+### 3. Обновление корневого CMakeLists.txt
+
+```bash
+lev@debian:~/Levgor-cmd/workspace/projects/lab06_hw$ cat > CMakeLists.txt <<'EOF'
+cmake_minimum_required(VERSION 3.10)
+project(solver_project)
 
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -27,133 +55,120 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 add_subdirectory(formatter_lib)
 add_subdirectory(formatter_ex_lib)
 add_subdirectory(solver_lib)
-add_subdirectory(hello_world_application)
 add_subdirectory(solver_application)
+
+include(CPackConfig.cmake)
 EOF
 ```
 
-#### formatter_lib/CMakeLists.txt:
+### 4. Обновление CMakeLists.txt для solver_application
+
 ```bash
-lev@debian:~/Levgor-cmd/workspace/projects/lab03_hw$ cat > formatter_lib/CMakeLists.txt <<'EOF'
-cmake_minimum_required(VERSION 3.4)
-project(formatter)
+lev@debian:~/Levgor-cmd/workspace/projects/lab06_hw$ cat > solver_application/CMakeLists.txt <<'EOF'
+cmake_minimum_required(VERSION 3.10)
+project(solver_app)
 
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-add_library(formatter STATIC ${CMAKE_CURRENT_SOURCE_DIR}/formatter.cpp)
-target_include_directories(formatter PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
-EOF
-```
-
-#### formatter_ex_lib/CMakeLists.txt:
-```bash
-lev@debian:~/Levgor-cmd/workspace/projects/lab03_hw$ cat > formatter_ex_lib/CMakeLists.txt <<'EOF'
-cmake_minimum_required(VERSION 3.4)
-project(formatter_ex)
-
-set(CMAKE_CXX_STANDARD 11)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-
-add_library(formatter_ex STATIC ${CMAKE_CURRENT_SOURCE_DIR}/formatter_ex.cpp)
-target_include_directories(formatter_ex PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
-target_link_libraries(formatter_ex formatter)
-EOF
-```
-
-#### solver_lib/CMakeLists.txt:
-```bash
-lev@debian:~/Levgor-cmd/workspace/projects/lab03_hw$ cat > solver_lib/CMakeLists.txt <<'EOF'
-cmake_minimum_required(VERSION 3.4)
-project(solver_lib)
-
-set(CMAKE_CXX_STANDARD 11)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-
-add_library(solver_lib STATIC ${CMAKE_CURRENT_SOURCE_DIR}/solver.cpp)
-target_include_directories(solver_lib PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
-EOF
-```
-
-#### hello_world_application/CMakeLists.txt:
-```bash
-lev@debian:~/Levgor-cmd/workspace/projects/lab03_hw$ cat > hello_world_application/CMakeLists.txt <<'EOF'
-cmake_minimum_required(VERSION 3.4)
-project(hello_world)
-
-set(CMAKE_CXX_STANDARD 11)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-
-add_executable(hello_world ${CMAKE_CURRENT_SOURCE_DIR}/hello_world.cpp)
-target_link_libraries(hello_world formatter_ex)
-EOF
-```
-
-#### solver_application/CMakeLists.txt:
-```bash
-lev@debian:~/Levgor-cmd/workspace/projects/lab03_hw$ cat > solver_application/CMakeLists.txt <<'EOF'
-cmake_minimum_required(VERSION 3.4)
-project(solver)
-
-set(CMAKE_CXX_STANDARD 11)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-
-add_executable(solver ${CMAKE_CURRENT_SOURCE_DIR}/equation.cpp)
+add_executable(solver equation.cpp)
 target_link_libraries(solver formatter_ex solver_lib)
+
+install(TARGETS solver RUNTIME DESTINATION bin)
 EOF
 ```
 
-### 3. Исправление ошибки в solver_lib/solver.cpp
-
-#### В исходном коде использовался `std::sqrtf` без подключения `<cmath>`. Исправленный файл:
+### 5. Сборка проекта
 
 ```bash
-lev@debian:~/Levgor-cmd/workspace/projects/lab03_hw$ cat > solver_lib/solver.cpp <<'EOF'
-#include "solver.h"
-#include <cmath>
-#include <stdexcept>
+lev@debian:~/Levgor-cmd/workspace/projects/lab06_hw$ rm -rf _build
+lev@debian:~/Levgor-cmd/workspace/projects/lab06_hw$ cmake -H. -B_build -DCMAKE_INSTALL_PREFIX=_install
+lev@debian:~/Levgor-cmd/workspace/projects/lab06_hw$ cmake --build _build
+```
 
-void solve(float a, float b, float c, float& x1, float& x2)
-{
-    float d = (b * b) - (4 * a * c);
+#### Результат сборки:
+```
+[ 25%] Built target formatter
+[ 50%] Built target formatter_ex
+[ 75%] Built target solver_lib
+[100%] Built target solver
+```
 
-    if (d < 0)
-    {
-        throw std::logic_error{"error: discriminant < 0"};
-    }
+### 6. Создание пакетов
 
-    x1 = (-b - std::sqrt(d)) / (2 * a);
-    x2 = (-b + std::sqrt(d)) / (2 * a);
-}
+```bash
+lev@debian:~/Levgor-cmd/workspace/projects/lab06_hw$ cd _build
+lev@debian:~/Levgor-cmd/workspace/projects/lab06_hw/_build$ cpack -G TGZ
+lev@debian:~/Levgor-cmd/workspace/projects/lab06_hw/_build$ cpack -G DEB
+lev@debian:~/Levgor-cmd/workspace/projects/lab06_hw/_build$ cpack -G RPM
+```
+
+#### Результат:
+- `solver_project-0.1.0.0-Linux.tar.gz` — создан
+- `solver_project-0.1.0.0-Linux.rpm` — создан
+- DEB пакет не создался (требуется дополнительная настройка maintainer)
+
+### 7. Копирование артефактов
+
+```bash
+lev@debian:~/Levgor-cmd/workspace/projects/lab06_hw$ mkdir -p artifacts
+lev@debian:~/Levgor-cmd/workspace/projects/lab06_hw$ cp _build/*.tar.gz _build/*.rpm artifacts/
+lev@debian:~/Levgor-cmd/workspace/projects/lab06_hw$ ls -la artifacts/
+```
+
+#### Результат:
+```
+-rw-rw-r-- 1 lev lev 13774 solver_project-0.1.0.0-Linux.rpm
+-rw-rw-r-- 1 lev lev  6899 solver_project-0.1.0.0-Linux.tar.gz
+```
+
+### 8. Настройка GitHub Actions
+
+```bash
+lev@debian:~/Levgor-cmd/workspace/projects/lab06_hw$ mkdir -p .github/workflows
+lev@debian:~/Levgor-cmd/workspace/projects/lab06_hw$ cat > .github/workflows/packages.yml <<'EOF'
+name: Build Packages
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Install dependencies
+      run: |
+        sudo apt update
+        sudo apt install -y cmake build-essential rpm
+
+    - name: Configure
+      run: cmake -H. -B_build -DCMAKE_INSTALL_PREFIX=_install
+
+    - name: Build
+      run: cmake --build _build
+
+    - name: Create packages
+      run: |
+        cd _build
+        cpack -G TGZ
+        cpack -G DEB
+        cpack -G RPM
+
+    - name: Create Release
+      uses: softprops/action-gh-release@v1
+      with:
+        files: |
+          _build/*.tar.gz
+          _build/*.deb
+          _build/*.rpm
+        generate_release_notes: true
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 EOF
-```
-
-### 4. Сборка проекта
-
-```bash
-lev@debian:~/Levgor-cmd/workspace/projects/lab03_hw$ rm -rf _build
-lev@debian:~/Levgor-cmd/workspace/projects/lab03_hw$ cmake -H. -B_build
-lev@debian:~/Levgor-cmd/workspace/projects/lab03_hw$ cmake --build _build
-```
-
-### 5. Запуск программ
-
-```bash
-lev@debian:~/Levgor-cmd/workspace/projects/lab03_hw$ _build/hello_world_application/hello_world
--------------------------
-hello, world!
--------------------------
-```
-
-```bash
-lev@debian:~/Levgor-cmd/workspace/projects/lab03_hw$ _build/solver_application/solver
-1
--5
-4
--------------------------
-x1 = 1.000000
--------------------------
--------------------------
-x2 = 4.000000
--------------------------
 ```

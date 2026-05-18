@@ -1,8 +1,8 @@
-# Install script for directory: /home/lev/Levgor-cmd/workspace/projects/lab03_hw/solver_lib
+# Install script for directory: /home/lev/Levgor-cmd/workspace/projects/lab06_hw/solver_lib
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/usr/local")
+  set(CMAKE_INSTALL_PREFIX "/home/lev/Levgor-cmd/workspace/projects/lab06_hw/_install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -45,6 +45,6 @@ endif()
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
 if(CMAKE_INSTALL_LOCAL_ONLY)
-  file(WRITE "/home/lev/Levgor-cmd/workspace/projects/lab03_hw/_build/solver_lib/install_local_manifest.txt"
+  file(WRITE "/home/lev/Levgor-cmd/workspace/projects/lab06_hw/_build/solver_lib/install_local_manifest.txt"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()

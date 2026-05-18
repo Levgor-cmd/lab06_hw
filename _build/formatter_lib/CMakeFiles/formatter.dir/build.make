@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/lev/Levgor-cmd/workspace/projects/lab03_hw
+CMAKE_SOURCE_DIR = /home/lev/Levgor-cmd/workspace/projects/lab06_hw
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/lev/Levgor-cmd/workspace/projects/lab03_hw/_build
+CMAKE_BINARY_DIR = /home/lev/Levgor-cmd/workspace/projects/lab06_hw/_build
 
 # Include any dependencies generated for this target.
 include formatter_lib/CMakeFiles/formatter.dir/depend.make
@@ -73,18 +73,18 @@ formatter_lib/CMakeFiles/formatter.dir/codegen:
 .PHONY : formatter_lib/CMakeFiles/formatter.dir/codegen
 
 formatter_lib/CMakeFiles/formatter.dir/formatter.cpp.o: formatter_lib/CMakeFiles/formatter.dir/flags.make
-formatter_lib/CMakeFiles/formatter.dir/formatter.cpp.o: /home/lev/Levgor-cmd/workspace/projects/lab03_hw/formatter_lib/formatter.cpp
+formatter_lib/CMakeFiles/formatter.dir/formatter.cpp.o: /home/lev/Levgor-cmd/workspace/projects/lab06_hw/formatter_lib/formatter.cpp
 formatter_lib/CMakeFiles/formatter.dir/formatter.cpp.o: formatter_lib/CMakeFiles/formatter.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/lev/Levgor-cmd/workspace/projects/lab03_hw/_build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object formatter_lib/CMakeFiles/formatter.dir/formatter.cpp.o"
-	cd /home/lev/Levgor-cmd/workspace/projects/lab03_hw/_build/formatter_lib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT formatter_lib/CMakeFiles/formatter.dir/formatter.cpp.o -MF CMakeFiles/formatter.dir/formatter.cpp.o.d -o CMakeFiles/formatter.dir/formatter.cpp.o -c /home/lev/Levgor-cmd/workspace/projects/lab03_hw/formatter_lib/formatter.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/lev/Levgor-cmd/workspace/projects/lab06_hw/_build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object formatter_lib/CMakeFiles/formatter.dir/formatter.cpp.o"
+	cd /home/lev/Levgor-cmd/workspace/projects/lab06_hw/_build/formatter_lib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT formatter_lib/CMakeFiles/formatter.dir/formatter.cpp.o -MF CMakeFiles/formatter.dir/formatter.cpp.o.d -o CMakeFiles/formatter.dir/formatter.cpp.o -c /home/lev/Levgor-cmd/workspace/projects/lab06_hw/formatter_lib/formatter.cpp
 
 formatter_lib/CMakeFiles/formatter.dir/formatter.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/formatter.dir/formatter.cpp.i"
-	cd /home/lev/Levgor-cmd/workspace/projects/lab03_hw/_build/formatter_lib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lev/Levgor-cmd/workspace/projects/lab03_hw/formatter_lib/formatter.cpp > CMakeFiles/formatter.dir/formatter.cpp.i
+	cd /home/lev/Levgor-cmd/workspace/projects/lab06_hw/_build/formatter_lib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lev/Levgor-cmd/workspace/projects/lab06_hw/formatter_lib/formatter.cpp > CMakeFiles/formatter.dir/formatter.cpp.i
 
 formatter_lib/CMakeFiles/formatter.dir/formatter.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/formatter.dir/formatter.cpp.s"
-	cd /home/lev/Levgor-cmd/workspace/projects/lab03_hw/_build/formatter_lib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lev/Levgor-cmd/workspace/projects/lab03_hw/formatter_lib/formatter.cpp -o CMakeFiles/formatter.dir/formatter.cpp.s
+	cd /home/lev/Levgor-cmd/workspace/projects/lab06_hw/_build/formatter_lib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lev/Levgor-cmd/workspace/projects/lab06_hw/formatter_lib/formatter.cpp -o CMakeFiles/formatter.dir/formatter.cpp.s
 
 # Object files for target formatter
 formatter_OBJECTS = \
@@ -96,19 +96,19 @@ formatter_EXTERNAL_OBJECTS =
 formatter_lib/libformatter.a: formatter_lib/CMakeFiles/formatter.dir/formatter.cpp.o
 formatter_lib/libformatter.a: formatter_lib/CMakeFiles/formatter.dir/build.make
 formatter_lib/libformatter.a: formatter_lib/CMakeFiles/formatter.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/lev/Levgor-cmd/workspace/projects/lab03_hw/_build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library libformatter.a"
-	cd /home/lev/Levgor-cmd/workspace/projects/lab03_hw/_build/formatter_lib && $(CMAKE_COMMAND) -P CMakeFiles/formatter.dir/cmake_clean_target.cmake
-	cd /home/lev/Levgor-cmd/workspace/projects/lab03_hw/_build/formatter_lib && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/formatter.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/lev/Levgor-cmd/workspace/projects/lab06_hw/_build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library libformatter.a"
+	cd /home/lev/Levgor-cmd/workspace/projects/lab06_hw/_build/formatter_lib && $(CMAKE_COMMAND) -P CMakeFiles/formatter.dir/cmake_clean_target.cmake
+	cd /home/lev/Levgor-cmd/workspace/projects/lab06_hw/_build/formatter_lib && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/formatter.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 formatter_lib/CMakeFiles/formatter.dir/build: formatter_lib/libformatter.a
 .PHONY : formatter_lib/CMakeFiles/formatter.dir/build
 
 formatter_lib/CMakeFiles/formatter.dir/clean:
-	cd /home/lev/Levgor-cmd/workspace/projects/lab03_hw/_build/formatter_lib && $(CMAKE_COMMAND) -P CMakeFiles/formatter.dir/cmake_clean.cmake
+	cd /home/lev/Levgor-cmd/workspace/projects/lab06_hw/_build/formatter_lib && $(CMAKE_COMMAND) -P CMakeFiles/formatter.dir/cmake_clean.cmake
 .PHONY : formatter_lib/CMakeFiles/formatter.dir/clean
 
 formatter_lib/CMakeFiles/formatter.dir/depend:
-	cd /home/lev/Levgor-cmd/workspace/projects/lab03_hw/_build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/lev/Levgor-cmd/workspace/projects/lab03_hw /home/lev/Levgor-cmd/workspace/projects/lab03_hw/formatter_lib /home/lev/Levgor-cmd/workspace/projects/lab03_hw/_build /home/lev/Levgor-cmd/workspace/projects/lab03_hw/_build/formatter_lib /home/lev/Levgor-cmd/workspace/projects/lab03_hw/_build/formatter_lib/CMakeFiles/formatter.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /home/lev/Levgor-cmd/workspace/projects/lab06_hw/_build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/lev/Levgor-cmd/workspace/projects/lab06_hw /home/lev/Levgor-cmd/workspace/projects/lab06_hw/formatter_lib /home/lev/Levgor-cmd/workspace/projects/lab06_hw/_build /home/lev/Levgor-cmd/workspace/projects/lab06_hw/_build/formatter_lib /home/lev/Levgor-cmd/workspace/projects/lab06_hw/_build/formatter_lib/CMakeFiles/formatter.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : formatter_lib/CMakeFiles/formatter.dir/depend
 

@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/lev/Levgor-cmd/workspace/projects/lab03_hw/solver_lib
+CXX_INCLUDES = -I/home/lev/Levgor-cmd/workspace/projects/lab06_hw/solver_lib
 
 CXX_FLAGS = -std=gnu++11
 

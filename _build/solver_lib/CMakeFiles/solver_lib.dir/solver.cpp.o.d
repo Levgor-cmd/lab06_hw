@@ -1,7 +1,7 @@
 solver_lib/CMakeFiles/solver_lib.dir/solver.cpp.o: \
- /home/lev/Levgor-cmd/workspace/projects/lab03_hw/solver_lib/solver.cpp \
+ /home/lev/Levgor-cmd/workspace/projects/lab06_hw/solver_lib/solver.cpp \
  /usr/include/stdc-predef.h \
- /home/lev/Levgor-cmd/workspace/projects/lab03_hw/solver_lib/solver.h \
+ /home/lev/Levgor-cmd/workspace/projects/lab06_hw/solver_lib/solver.h \
  /usr/include/c++/14/cmath /usr/include/c++/14/bits/requires_hosted.h \
  /usr/include/x86_64-linux-gnu/c++/14/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/14/bits/os_defines.h \

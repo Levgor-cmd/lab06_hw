@@ -1,7 +1,7 @@
 formatter_ex_lib/CMakeFiles/formatter_ex.dir/formatter_ex.cpp.o: \
- /home/lev/Levgor-cmd/workspace/projects/lab03_hw/formatter_ex_lib/formatter_ex.cpp \
+ /home/lev/Levgor-cmd/workspace/projects/lab06_hw/formatter_ex_lib/formatter_ex.cpp \
  /usr/include/stdc-predef.h \
- /home/lev/Levgor-cmd/workspace/projects/lab03_hw/formatter_ex_lib/formatter_ex.h \
+ /home/lev/Levgor-cmd/workspace/projects/lab06_hw/formatter_ex_lib/formatter_ex.h \
  /usr/include/c++/14/string /usr/include/c++/14/bits/requires_hosted.h \
  /usr/include/x86_64-linux-gnu/c++/14/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/14/bits/os_defines.h \
@@ -156,4 +156,4 @@ formatter_ex_lib/CMakeFiles/formatter_ex.dir/formatter_ex.cpp.o: \
  /usr/include/c++/14/bits/basic_ios.tcc \
  /usr/include/c++/14/bits/ostream.tcc /usr/include/c++/14/istream \
  /usr/include/c++/14/bits/istream.tcc \
- /home/lev/Levgor-cmd/workspace/projects/lab03_hw/formatter_lib/formatter.h
+ /home/lev/Levgor-cmd/workspace/projects/lab06_hw/formatter_lib/formatter.h

@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/lev/Levgor-cmd/workspace/projects/lab03_hw/formatter_ex_lib/formatter_ex.cpp" "formatter_ex_lib/CMakeFiles/formatter_ex.dir/formatter_ex.cpp.o" "gcc" "formatter_ex_lib/CMakeFiles/formatter_ex.dir/formatter_ex.cpp.o.d"
+  "/home/lev/Levgor-cmd/workspace/projects/lab06_hw/formatter_ex_lib/formatter_ex.cpp" "formatter_ex_lib/CMakeFiles/formatter_ex.dir/formatter_ex.cpp.o" "gcc" "formatter_ex_lib/CMakeFiles/formatter_ex.dir/formatter_ex.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

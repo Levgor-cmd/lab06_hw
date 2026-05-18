@@ -7,15 +7,15 @@ set(CMAKE_DEPENDS_GENERATOR "Unix Makefiles")
 # The top level Makefile was generated from the following files:
 set(CMAKE_MAKEFILE_DEPENDS
   "CMakeCache.txt"
-  "/home/lev/Levgor-cmd/workspace/projects/lab03_hw/CMakeLists.txt"
+  "/home/lev/Levgor-cmd/workspace/projects/lab06_hw/CMakeLists.txt"
+  "/home/lev/Levgor-cmd/workspace/projects/lab06_hw/CPackConfig.cmake"
   "CMakeFiles/3.31.6/CMakeCCompiler.cmake"
   "CMakeFiles/3.31.6/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.31.6/CMakeSystem.cmake"
-  "/home/lev/Levgor-cmd/workspace/projects/lab03_hw/formatter_ex_lib/CMakeLists.txt"
-  "/home/lev/Levgor-cmd/workspace/projects/lab03_hw/formatter_lib/CMakeLists.txt"
-  "/home/lev/Levgor-cmd/workspace/projects/lab03_hw/hello_world_application/CMakeLists.txt"
-  "/home/lev/Levgor-cmd/workspace/projects/lab03_hw/solver_application/CMakeLists.txt"
-  "/home/lev/Levgor-cmd/workspace/projects/lab03_hw/solver_lib/CMakeLists.txt"
+  "/home/lev/Levgor-cmd/workspace/projects/lab06_hw/formatter_ex_lib/CMakeLists.txt"
+  "/home/lev/Levgor-cmd/workspace/projects/lab06_hw/formatter_lib/CMakeLists.txt"
+  "/home/lev/Levgor-cmd/workspace/projects/lab06_hw/solver_application/CMakeLists.txt"
+  "/home/lev/Levgor-cmd/workspace/projects/lab06_hw/solver_lib/CMakeLists.txt"
   "/usr/share/cmake-3.31/Modules/CMakeCCompiler.cmake.in"
   "/usr/share/cmake-3.31/Modules/CMakeCCompilerABI.c"
   "/usr/share/cmake-3.31/Modules/CMakeCInformation.cmake"
@@ -45,6 +45,8 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/usr/share/cmake-3.31/Modules/CMakeTestCXXCompiler.cmake"
   "/usr/share/cmake-3.31/Modules/CMakeTestCompilerCommon.cmake"
   "/usr/share/cmake-3.31/Modules/CMakeUnixFindMake.cmake"
+  "/usr/share/cmake-3.31/Modules/CPack.cmake"
+  "/usr/share/cmake-3.31/Modules/CPackComponent.cmake"
   "/usr/share/cmake-3.31/Modules/Compiler/ADSP-DetermineCompiler.cmake"
   "/usr/share/cmake-3.31/Modules/Compiler/ARMCC-DetermineCompiler.cmake"
   "/usr/share/cmake-3.31/Modules/Compiler/ARMClang-DetermineCompiler.cmake"
@@ -103,6 +105,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/usr/share/cmake-3.31/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake"
   "/usr/share/cmake-3.31/Modules/Compiler/zOS-C-DetermineCompiler.cmake"
   "/usr/share/cmake-3.31/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake"
+  "/usr/share/cmake-3.31/Modules/InstallRequiredSystemLibraries.cmake"
   "/usr/share/cmake-3.31/Modules/Internal/CMakeCLinkerInformation.cmake"
   "/usr/share/cmake-3.31/Modules/Internal/CMakeCXXLinkerInformation.cmake"
   "/usr/share/cmake-3.31/Modules/Internal/CMakeCommonLinkerInformation.cmake"
@@ -122,6 +125,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/usr/share/cmake-3.31/Modules/Platform/Linux-Initialize.cmake"
   "/usr/share/cmake-3.31/Modules/Platform/Linux.cmake"
   "/usr/share/cmake-3.31/Modules/Platform/UnixPaths.cmake"
+  "/usr/share/cmake-3.31/Templates/CPackConfig.cmake.in"
   )
 
 # The corresponding makefile is:
@@ -137,11 +141,12 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/3.31.6/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.31.6/CMakeCCompiler.cmake"
   "CMakeFiles/3.31.6/CMakeCXXCompiler.cmake"
+  "CPackConfig.cmake"
+  "CPackSourceConfig.cmake"
   "CMakeFiles/CMakeDirectoryInformation.cmake"
   "formatter_lib/CMakeFiles/CMakeDirectoryInformation.cmake"
   "formatter_ex_lib/CMakeFiles/CMakeDirectoryInformation.cmake"
   "solver_lib/CMakeFiles/CMakeDirectoryInformation.cmake"
-  "hello_world_application/CMakeFiles/CMakeDirectoryInformation.cmake"
   "solver_application/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
@@ -150,6 +155,5 @@ set(CMAKE_DEPEND_INFO_FILES
   "formatter_lib/CMakeFiles/formatter.dir/DependInfo.cmake"
   "formatter_ex_lib/CMakeFiles/formatter_ex.dir/DependInfo.cmake"
   "solver_lib/CMakeFiles/solver_lib.dir/DependInfo.cmake"
-  "hello_world_application/CMakeFiles/hello_world.dir/DependInfo.cmake"
   "solver_application/CMakeFiles/solver.dir/DependInfo.cmake"
   )

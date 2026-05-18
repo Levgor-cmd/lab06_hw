@@ -1,7 +1,7 @@
 formatter_lib/CMakeFiles/formatter.dir/formatter.cpp.o: \
- /home/lev/Levgor-cmd/workspace/projects/lab03_hw/formatter_lib/formatter.cpp \
+ /home/lev/Levgor-cmd/workspace/projects/lab06_hw/formatter_lib/formatter.cpp \
  /usr/include/stdc-predef.h \
- /home/lev/Levgor-cmd/workspace/projects/lab03_hw/formatter_lib/formatter.h \
+ /home/lev/Levgor-cmd/workspace/projects/lab06_hw/formatter_lib/formatter.h \
  /usr/include/c++/14/string /usr/include/c++/14/bits/requires_hosted.h \
  /usr/include/x86_64-linux-gnu/c++/14/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/14/bits/os_defines.h \

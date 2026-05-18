@@ -1,0 +1,43 @@
+name: Build Packages
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Install dependencies
+      run: |
+        sudo apt update
+        sudo apt install -y cmake build-essential rpm
+    
+    - name: Configure
+      run: cmake -H. -B_build -DCMAKE_INSTALL_PREFIX=_install
+    
+    - name: Build
+      run: cmake --build _build
+    
+    - name: Create packages
+      run: |
+        cd _build
+        cpack -G TGZ
+        cpack -G DEB
+        cpack -G RPM
+    
+    - name: Create Release
+      uses: softprops/action-gh-release@v1
+      with:
+        files: |
+          _build/*.tar.gz
+          _build/*.deb
+          _build/*.rpm
+        generate_release_notes: true
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

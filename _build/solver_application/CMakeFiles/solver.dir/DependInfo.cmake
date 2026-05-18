@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/lev/Levgor-cmd/workspace/projects/lab03_hw/solver_application/equation.cpp" "solver_application/CMakeFiles/solver.dir/equation.cpp.o" "gcc" "solver_application/CMakeFiles/solver.dir/equation.cpp.o.d"
+  "/home/lev/Levgor-cmd/workspace/projects/lab06_hw/solver_application/equation.cpp" "solver_application/CMakeFiles/solver.dir/equation.cpp.o" "gcc" "solver_application/CMakeFiles/solver.dir/equation.cpp.o.d"
   "" "solver_application/solver" "gcc" "solver_application/CMakeFiles/solver.dir/link.d"
   )
 
