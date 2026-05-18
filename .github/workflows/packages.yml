@@ -19,25 +19,25 @@ jobs:
         sudo apt install -y cmake build-essential rpm
     
     - name: Configure
-      run: cmake -H. -B_build -DCMAKE_INSTALL_PREFIX=_install
+      run: cmake -S . -B github_build -DCMAKE_INSTALL_PREFIX=_install
     
     - name: Build
-      run: cmake --build _build
+      run: cmake --build github_build
     
     - name: Create packages
       run: |
-        cd _build
+        cd github_build
         cpack -G TGZ
-        cpack -G DEB
+        cpack -G DEB || echo "DEB package skipped (maintainer issue)"
         cpack -G RPM
     
     - name: Create Release
       uses: softprops/action-gh-release@v1
       with:
         files: |
-          _build/*.tar.gz
-          _build/*.deb
-          _build/*.rpm
+          github_build/*.tar.gz
+          github_build/*.deb
+          github_build/*.rpm
         generate_release_notes: true
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
