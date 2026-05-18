@@ -1,4 +1,3 @@
-[![Build Packages](https://img.shields.io/github/actions/workflow/status/Levgor-cmd/lab06_hw/packages.yml?branch=main&label=Build%20Packages&logo=github)](https://github.com/Levgor-cmd/lab06_hw/actions/workflows/packages.yml)
 ## Отчёт по домашнему заданию к лабораторной работе 06
 
 ### 1. Подготовка окружения и репозитория
