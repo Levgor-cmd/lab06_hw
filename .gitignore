@@ -1,0 +1,13 @@
+# Build directories
+_build/
+build/
+_install/
+install/
+
+# Artifacts
+artifacts/
+
+# CMake cache
+CMakeCache.txt
+CMakeFiles/
+*.cmake
