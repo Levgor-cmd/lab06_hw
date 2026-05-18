@@ -1,193 +1,159 @@
-## Laboratory work III
+л## Отчёт к лабораторной работе 03 (домашнее задание)
 
-Данная лабораторная работа посвещена изучению систем автоматизации сборки проекта на примере **CMake**
+### 1. Подготовка окружения
 
-```sh
-$ open https://cmake.org/
+```bash
+lev@debian:~$ export GITHUB_USERNAME=Levgor-cmd
+lev@debian:~$ cd ${GITHUB_USERNAME}/workspace
+lev@debian:~/Levgor-cmd/workspace$ pushd .
+lev@debian:~/Levgor-cmd/workspace$ rm -rf projects/lab03_hw
+lev@debian:~/Levgor-cmd/workspace$ git clone https://github.com/tp-labs/lab03 projects/lab03_hw
+lev@debian:~/Levgor-cmd/workspace$ cd projects/lab03_hw
+lev@debian:~/Levgor-cmd/workspace/projects/lab03_hw$ git remote remove origin
+lev@debian:~/Levgor-cmd/workspace/projects/lab03_hw$ git remote add origin https://github.com/${GITHUB_USERNAME}/lab03_hw
 ```
 
-## Tasks
+### 2. Создание CMakeLists.txt для каждого компонента
 
-- [ ] 1. Создать публичный репозиторий с названием **lab03** на сервисе **GitHub**
-- [ ] 2. Ознакомиться со ссылками учебного материала
-- [ ] 3. Выполнить инструкцию учебного материала
-- [ ] 4. Составить отчет и отправить ссылку личным сообщением в **Slack**
-
-## Tutorial
-
-```sh
-$ export GITHUB_USERNAME=<имя_пользователя>
-```
-
-```sh
-$ cd ${GITHUB_USERNAME}/workspace
-$ pushd .
-$ source scripts/activate
-```
-
-```sh
-$ git clone https://github.com/${GITHUB_USERNAME}/lab02.git projects/lab03
-$ cd projects/lab03
-$ git remote remove origin
-$ git remote add origin https://github.com/${GITHUB_USERNAME}/lab03.git
-```
-
-```sh
-$ g++ -std=c++11 -I./include -c sources/print.cpp
-$ ls print.o
-$ nm print.o | grep print
-$ ar rvs print.a print.o
-$ file print.a
-$ g++ -std=c++11 -I./include -c examples/example1.cpp
-$ ls example1.o
-$ g++ example1.o print.a -o example1
-$ ./example1 && echo
-```
-
-```sh
-$ g++ -std=c++11 -I./include -c examples/example2.cpp
-$ nm example2.o
-$ g++ example2.o print.a -o example2
-$ ./example2
-$ cat log.txt && echo
-```
-
-```sh
-$ rm -rf example1.o example2.o print.o
-$ rm -rf print.a
-$ rm -rf example1 example2
-$ rm -rf log.txt
-```
-
-```sh
-$ cat > CMakeLists.txt <<EOF
+#### Корневой CMakeLists.txt:
+```bash
+lev@debian:~/Levgor-cmd/workspace/projects/lab03_hw$ cat > CMakeLists.txt <<'EOF'
 cmake_minimum_required(VERSION 3.4)
-project(print)
-EOF
-```
+project(FormatterProject)
 
-```sh
-$ cat >> CMakeLists.txt <<EOF
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+add_subdirectory(formatter_lib)
+add_subdirectory(formatter_ex_lib)
+add_subdirectory(solver_lib)
+add_subdirectory(hello_world_application)
+add_subdirectory(solver_application)
 EOF
 ```
 
-```sh
-$ cat >> CMakeLists.txt <<EOF
-add_library(print STATIC \${CMAKE_CURRENT_SOURCE_DIR}/sources/print.cpp)
+#### formatter_lib/CMakeLists.txt:
+```bash
+lev@debian:~/Levgor-cmd/workspace/projects/lab03_hw$ cat > formatter_lib/CMakeLists.txt <<'EOF'
+cmake_minimum_required(VERSION 3.4)
+project(formatter)
+
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+add_library(formatter STATIC ${CMAKE_CURRENT_SOURCE_DIR}/formatter.cpp)
+target_include_directories(formatter PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 EOF
 ```
 
-```sh
-$ cat >> CMakeLists.txt <<EOF
-include_directories(\${CMAKE_CURRENT_SOURCE_DIR}/include)
+#### formatter_ex_lib/CMakeLists.txt:
+```bash
+lev@debian:~/Levgor-cmd/workspace/projects/lab03_hw$ cat > formatter_ex_lib/CMakeLists.txt <<'EOF'
+cmake_minimum_required(VERSION 3.4)
+project(formatter_ex)
+
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+add_library(formatter_ex STATIC ${CMAKE_CURRENT_SOURCE_DIR}/formatter_ex.cpp)
+target_include_directories(formatter_ex PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+target_link_libraries(formatter_ex formatter)
 EOF
 ```
 
-```sh
-$ cmake -H. -B_build
-$ cmake --build _build
-```
+#### solver_lib/CMakeLists.txt:
+```bash
+lev@debian:~/Levgor-cmd/workspace/projects/lab03_hw$ cat > solver_lib/CMakeLists.txt <<'EOF'
+cmake_minimum_required(VERSION 3.4)
+project(solver_lib)
 
-```sh
-$ cat >> CMakeLists.txt <<EOF
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-add_executable(example1 \${CMAKE_CURRENT_SOURCE_DIR}/examples/example1.cpp)
-add_executable(example2 \${CMAKE_CURRENT_SOURCE_DIR}/examples/example2.cpp)
+add_library(solver_lib STATIC ${CMAKE_CURRENT_SOURCE_DIR}/solver.cpp)
+target_include_directories(solver_lib PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 EOF
 ```
 
-```sh
-$ cat >> CMakeLists.txt <<EOF
+#### hello_world_application/CMakeLists.txt:
+```bash
+lev@debian:~/Levgor-cmd/workspace/projects/lab03_hw$ cat > hello_world_application/CMakeLists.txt <<'EOF'
+cmake_minimum_required(VERSION 3.4)
+project(hello_world)
 
-target_link_libraries(example1 print)
-target_link_libraries(example2 print)
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+add_executable(hello_world ${CMAKE_CURRENT_SOURCE_DIR}/hello_world.cpp)
+target_link_libraries(hello_world formatter_ex)
 EOF
 ```
 
-```sh
-$ cmake --build _build
-$ cmake --build _build --target print
-$ cmake --build _build --target example1
-$ cmake --build _build --target example2
+#### solver_application/CMakeLists.txt:
+```bash
+lev@debian:~/Levgor-cmd/workspace/projects/lab03_hw$ cat > solver_application/CMakeLists.txt <<'EOF'
+cmake_minimum_required(VERSION 3.4)
+project(solver)
+
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+add_executable(solver ${CMAKE_CURRENT_SOURCE_DIR}/equation.cpp)
+target_link_libraries(solver formatter_ex solver_lib)
+EOF
 ```
 
-```sh
-$ ls -la _build/libprint.a
-$ _build/example1 && echo
-hello
-$ _build/example2
-$ cat log.txt && echo
-hello
-$ rm -rf log.txt
+### 3. Исправление ошибки в solver_lib/solver.cpp
+
+#### В исходном коде использовался `std::sqrtf` без подключения `<cmath>`. Исправленный файл:
+
+```bash
+lev@debian:~/Levgor-cmd/workspace/projects/lab03_hw$ cat > solver_lib/solver.cpp <<'EOF'
+#include "solver.h"
+#include <cmath>
+#include <stdexcept>
+
+void solve(float a, float b, float c, float& x1, float& x2)
+{
+    float d = (b * b) - (4 * a * c);
+
+    if (d < 0)
+    {
+        throw std::logic_error{"error: discriminant < 0"};
+    }
+
+    x1 = (-b - std::sqrt(d)) / (2 * a);
+    x2 = (-b + std::sqrt(d)) / (2 * a);
+}
+EOF
 ```
 
-```sh
-$ git clone https://github.com/tp-labs/lab03 tmp
-$ mv -f tmp/CMakeLists.txt .
-$ rm -rf tmp
+### 4. Сборка проекта
+
+```bash
+lev@debian:~/Levgor-cmd/workspace/projects/lab03_hw$ rm -rf _build
+lev@debian:~/Levgor-cmd/workspace/projects/lab03_hw$ cmake -H. -B_build
+lev@debian:~/Levgor-cmd/workspace/projects/lab03_hw$ cmake --build _build
 ```
 
-```sh
-$ cat CMakeLists.txt
-$ cmake -H. -B_build -DCMAKE_INSTALL_PREFIX=_install
-$ cmake --build _build --target install
-$ tree _install
+### 5. Запуск программ
+
+```bash
+lev@debian:~/Levgor-cmd/workspace/projects/lab03_hw$ _build/hello_world_application/hello_world
+-------------------------
+hello, world!
+-------------------------
 ```
 
-```sh
-$ git add CMakeLists.txt
-$ git commit -m"added CMakeLists.txt"
-$ git push origin master
-```
-
-## Report
-
-```sh
-$ popd
-$ export LAB_NUMBER=03
-$ git clone https://github.com/tp-labs/lab${LAB_NUMBER} tasks/lab${LAB_NUMBER}
-$ mkdir reports/lab${LAB_NUMBER}
-$ cp tasks/lab${LAB_NUMBER}/README.md reports/lab${LAB_NUMBER}/REPORT.md
-$ cd reports/lab${LAB_NUMBER}
-$ edit REPORT.md
-$ gist REPORT.md
-```
-
-## Homework
-
-Представьте, что вы стажер в компании "Formatter Inc.".
-### Задание 1
-Вам поручили перейти на систему автоматизированной сборки **CMake**.
-Исходные файлы находятся в директории [formatter_lib](formatter_lib).
-В этой директории находятся файлы для статической библиотеки *formatter*.
-Создайте `CMakeList.txt` в директории [formatter_lib](formatter_lib),
-с помощью которого можно будет собирать статическую библиотеку *formatter*.
-
-### Задание 2
-У компании "Formatter Inc." есть перспективная библиотека,
-которая является расширением предыдущей библиотеки. Т.к. вы уже овладели
-навыком созданием `CMakeList.txt` для статической библиотеки *formatter*, ваш 
-руководитель поручает заняться созданием `CMakeList.txt` для библиотеки 
-*formatter_ex*, которая в свою очередь использует библиотеку *formatter*.
-
-### Задание 3
-Конечно же ваша компания предоставляет примеры использования своих библиотек.
-Чтобы продемонстрировать как работать с библиотекой *formatter_ex*,
-вам необходимо создать два `CMakeList.txt` для двух простых приложений:
-* *hello_world*, которое использует библиотеку *formatter_ex*;
-* *solver*, приложение которое испольует статические библиотеки *formatter_ex* и *solver_lib*.
-
-**Удачной стажировки!**
-
-## Links
-- [Основы сборки проектов на С/C++ при помощи CMake](https://eax.me/cmake/)
-- [CMake Tutorial](http://neerc.ifmo.ru/wiki/index.php?title=CMake_Tutorial)
-- [C++ Tutorial - make & CMake](https://www.bogotobogo.com/cplusplus/make.php)
-- [Autotools](http://www.gnu.org/software/automake/manual/html_node/Autotools-Introduction.html)
-- [CMake](https://cgold.readthedocs.io/en/latest/index.html)
-
-```
-Copyright (c) 2015-2021 The ISC Authors
+```bash
+lev@debian:~/Levgor-cmd/workspace/projects/lab03_hw$ _build/solver_application/solver
+1
+-5
+4
+-------------------------
+x1 = 1.000000
+-------------------------
+-------------------------
+x2 = 4.000000
+-------------------------
 ```
