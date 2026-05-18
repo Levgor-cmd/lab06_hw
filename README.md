@@ -1,5 +1,3 @@
-[![Build Packages](https://github.com/Levgor-cmd/lab06_hw/actions/workflows/packages.yml/badge.svg)](https://github.com/Levgor-cmd/lab06_hw/actions/workflows/packages.yml)
-
 ## Отчёт по домашнему заданию к лабораторной работе 06
 
 ### 1. Подготовка окружения и репозитория
